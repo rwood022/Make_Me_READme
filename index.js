@@ -1,6 +1,7 @@
 // TODO: Include packages needed for this application
 const inqurer = require("inquirer");
 const fs = require("fs");
+const { title } = require("process");
 
 // TODO: Create an array of questions for user input
 const questions = () => {
@@ -54,7 +55,30 @@ const questions = () => {
 ]);
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile(fileName, data) {
+`# ${title}
+
+
+## Description
+${motivation}
+${reason}
+${issue}
+${learn}
+
+## Table of Contents
+
+## Installation
+${installation}
+
+## Usage
+${usage}
+
+## Credits
+${credits}
+
+## License
+${license}
+`}
 
 // TODO: Create a function to initialize app
 function init() {
