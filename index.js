@@ -1,9 +1,10 @@
 // TODO: Include packages needed for this application
 const inqurer = require("inquirer");
-
+const fs = require("fs");
 
 // TODO: Create an array of questions for user input
-const questions = [
+const questions = () => {
+    return inqurer.prompt([
     {
         type: "input",
         name: "title",
@@ -45,9 +46,11 @@ const questions = [
         message:"List any collaborators, third-party assets and/or tutorials that assisted with the making of your application:",
     },
     {
-        type:""
-    }
-];
+        type: "selector",
+        message:"Pick a License",
+        options: ["MIT", "GNU GPLv3", "GNU AGPLv3", "GNU LGPv3", "Mozilla Public", "Apache", "Boost", "Unlicense"],
+    },
+]);
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {}
