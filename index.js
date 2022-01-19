@@ -47,6 +47,7 @@ const questions = () => {
     },
     {
         type: "selector",
+        name:"license",
         message:"Pick a License",
         options: ["MIT", "GNU GPLv3", "GNU AGPLv3", "GNU LGPv3", "Mozilla Public", "Apache", "Boost", "Unlicense"],
     },
@@ -56,7 +57,12 @@ const questions = () => {
 function writeToFile(fileName, data) {}
 
 // TODO: Create a function to initialize app
-function init() {}
+function init() {
+    questions()
+    .then((answers) => fs.writeFileSync("READme.md", generateMd(answers)))
+    .then(() => console.log("READme.md has been written"))
+    .catch((err) => console.error(err));
+};
 
 // Function call to initialize app
 init();
